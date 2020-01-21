@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='description' content='N-tier project using php'>
+    <meta name='keywords' content='HTML, CSS, TWIG, PHP'>
+    <meta name='author' content='Robin Bidanchon'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!-- Personal -->
+    <link rel='stylesheet' href='{{ asset("css/style.css") }}'>
+    
+    <title>{% block title %}Homepage{% endblock %}</title>
+    
+</head>
+
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>

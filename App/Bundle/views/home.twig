@@ -1,0 +1,13 @@
+{% extends "template/layout.twig" %}
+{% block title %}{{ parent() }}{% endblock %}
+{% block body %}
+
+{% for user in users %}
+    <li>
+        <a href="{{ generate('articleByUser', {idUser: user.id})}}">
+            {{ user.prenom }} {{ user.nom }}
+        </a>
+    </li>
+{% endfor %}
+
+{% endblock %}
