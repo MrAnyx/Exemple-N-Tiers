@@ -40,7 +40,7 @@ function Convert_Array_Element_To_Int(array $array): array
     // conversion des nombres de l'url en entier car de base, se sont des strings
     foreach($array["params"] as $key => $value) {
         if(is_numeric($value) && gettype($value) === "string") {
-            $array["params"][$key] = intval($value);
+            $array["params"][$key] = (int)$value;
         }
     }
     return $array;
