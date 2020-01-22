@@ -30,6 +30,6 @@ CREATE TABLE Article(
         user_id Int NOT NULL
 	,CONSTRAINT Article_PK PRIMARY KEY (id)
 
-	,CONSTRAINT Article_User_FK FOREIGN KEY (id_User) REFERENCES User(id)
+	,CONSTRAINT Article_User_FK FOREIGN KEY (user_id) REFERENCES User(id)
 )ENGINE=InnoDB;
 
