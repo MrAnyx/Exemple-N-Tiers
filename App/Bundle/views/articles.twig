@@ -1,7 +1,5 @@
 {% extends "template/layout.twig" %}
-
 {% block title %}Articles{% endblock %}
-
 {% block body %}
 
 <a href="{{ generate('home') }}" class="btn btn-primary mb-4">&lt Retour</a>
@@ -11,6 +9,5 @@
         <a href="{{ generate('article', {idArticle: article.id, slug: article.slug}) }}">{{ article.titre }}</a>
     </li>
 {% endfor %}
-
 
 {% endblock %}

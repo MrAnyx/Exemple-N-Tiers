@@ -27,9 +27,9 @@ CREATE TABLE Article(
         contenu Text NOT NULL ,
         date    Datetime NOT NULL ,
         slug    Varchar (1000) NOT NULL ,
-        user_id Int NOT NULL
+        idUser Int NOT NULL
 	,CONSTRAINT Article_PK PRIMARY KEY (id)
 
-	,CONSTRAINT Article_User_FK FOREIGN KEY (user_id) REFERENCES User(id)
+	,CONSTRAINT Article_User_FK FOREIGN KEY (idUser) REFERENCES User(id)
 )ENGINE=InnoDB;
 

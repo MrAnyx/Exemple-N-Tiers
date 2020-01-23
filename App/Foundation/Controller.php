@@ -50,15 +50,15 @@ abstract class Controller
         $this->twig = new Environment(new FilesystemLoader(__DIR__ . "/../../". $lst_ini["view_path"]));
 
         // ajout de la fonction asset pour twig afin de récuperer l'url du dossier asset dans le repertoire public
-        $this->twig->addFunction(new TwigFunction('asset', function ($asset)
+        $this->twig->addFunction(new TwigFunction('asset', function ($asset): string
         {
             return sprintf('/../assets/%s', ltrim($asset, '/'));
         }));
-        $this->twig->addFunction(new TwigFunction('generate', function (string $name, array $params = [])
+        $this->twig->addFunction(new TwigFunction('generate', function (string $name, array $params = []): string
         {
             return sprintf(Router::$router->generate($name, $params));
         }));
-        $this->twig->addFunction(new TwigFunction('dump', function ($object)
+        $this->twig->addFunction(new TwigFunction('dump', function ($object): string
         {
             return var_dump($object);
         }));

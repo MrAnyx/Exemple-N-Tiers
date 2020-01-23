@@ -2,7 +2,7 @@
 {% block title %}Article | {{ article.titre }}{% endblock %}
 {% block body %}
 
-<a href="{{ generate("articleByUser", {idUser: article.user_id}) }}" class="btn btn-primary mb-4"> &lt Retour</a>
+<a href="{{ generate("articleByUser", {idUser: article.idUser}) }}" class="btn btn-primary mb-4"> &lt Retour</a>
 
 <h1>{{ article.titre }}</h1>
 

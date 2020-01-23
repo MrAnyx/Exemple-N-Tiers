@@ -39,9 +39,9 @@ class HomeController extends Controller
      */
     public function getUsers()
     {
-        $lst_result = $this->db->query("SELECT * FROM User");
+        $users = $this->db->query("SELECT * FROM User");
         echo $this->twig->render("home.twig", [
-            "users" => $lst_result
+            "users" => $users
         ]);
     }
 
@@ -53,11 +53,11 @@ class HomeController extends Controller
      */
     public function getArticleByUser(int $idUser)
     {
-        $lst_result = $this->db->prepare("SELECT * FROM Article WHERE user_id =  ?");
-        $lst_result->bindValue(1, $idUser, PDO::PARAM_INT);
-        $lst_result->execute();
+        $articlesByUser = $this->db->prepare("SELECT * FROM Article WHERE idUser =  ?");
+        $articlesByUser->bindValue(1, $idUser, PDO::PARAM_INT);
+        $articlesByUser->execute();
         echo $this->twig->render("articles.twig", [
-            "articles" => $lst_result
+            "articles" => $articlesByUser
         ]);
     }
 
@@ -71,20 +71,19 @@ class HomeController extends Controller
      */
     public function getFullArticle(int $idArticle, string $slug)
     {
-        $lst_result = $this->db->prepare("SELECT * FROM Article WHERE id =  ? AND slug = ?");
-        $lst_result->bindValue(1, $idArticle, PDO::PARAM_INT);
-        $lst_result->bindValue(2, $slug, PDO::PARAM_STR);
-        $lst_result->execute();
+        $article = $this->db->prepare("SELECT * FROM Article WHERE id =  ? AND slug = ?");
+        $article->bindValue(1, $idArticle, PDO::PARAM_INT);
+        $article->bindValue(2, $slug, PDO::PARAM_STR);
+        $article->execute();
 
-        if($lst_result->rowCount() === 0){
+        if($article->rowCount() === 0){
             header("Location: ".Router::$router->generate('home'));
         }else{
 
             echo $this->twig->render("articleFull.twig", [
-                "article" => $lst_result->fetch()
+                "article" => $article->fetch() // On met le fetch car on a qu'un seul element qui est retourné par la requête
                 ]);
-            }
-
+        }
 
     }
 }
