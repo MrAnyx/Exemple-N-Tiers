@@ -56,6 +56,9 @@ class HomeController extends Controller
         $articlesByUser = $this->db->prepare("SELECT * FROM Article WHERE idUser =  ?");
         $articlesByUser->bindValue(1, $idUser, PDO::PARAM_INT);
         $articlesByUser->execute();
+
+        redirectIfNoResult($articlesByUser);
+
         echo $this->twig->render("articles.twig", [
             "articles" => $articlesByUser
         ]);
@@ -76,14 +79,12 @@ class HomeController extends Controller
         $article->bindValue(2, $slug, PDO::PARAM_STR);
         $article->execute();
 
-        if($article->rowCount() === 0){
-            header("Location: ".Router::$router->generate('home'));
-        }else{
+        redirectIfNoResult($article);
 
-            echo $this->twig->render("articleFull.twig", [
-                "article" => $article->fetch() // On met le fetch car on a qu'un seul element qui est retourné par la requête
-                ]);
-        }
+        echo $this->twig->render("articleFull.twig", [
+            "article" => $article->fetch() // On met le fetch car on a qu'un seul element qui est retourné par la requête
+        ]);
+        
 
     }
 }

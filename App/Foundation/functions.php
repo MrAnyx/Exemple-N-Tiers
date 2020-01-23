@@ -2,7 +2,7 @@
 
 /**
  * Le fichier functions.php sert à créer des fonctions.
- * Ces fonctions pourront êre utilisées dans les fichier
+ * Ces fonctions pourront êre utilisées dans tous les fichiers
  * du framework via l'autoload file de composer
  * 
  * PHP version 7.4.1
@@ -16,12 +16,15 @@
  */
 
 
+use App\Foundation\Router;
 use Cocur\Slugify\Slugify;
+
 
 /**
  * Convert the title into a slug
- * @param string $title     Titre que l'on veut convertir en slug
- * @param string $separator     Separateur que l'on va utiliser pour la conversion en slug
+ * 
+ * @param string $title Titre que l'on veut convertir en slug
+ * @param string $separator Separateur que l'on va utiliser pour la conversion en slug
  * @return array
  */
 function slugify(string $title, string $separator): string
@@ -32,10 +35,11 @@ function slugify(string $title, string $separator): string
 
 /**
  * Convert strings that represent integers into real integers
+ * 
  * @param array $array correspond à la variable $match qui est placée en paramètre
  * @return array
  */
-function Convert_Array_Element_To_Int(array $array): array
+function convertArrayInt(array $array): array
 {
     // conversion des nombres de l'url en entier car de base, se sont des strings
     foreach($array["params"] as $key => $value) {
@@ -44,4 +48,18 @@ function Convert_Array_Element_To_Int(array $array): array
         }
     }
     return $array;
+}
+
+/**
+ * Fait une redirection vers la page d'accueil si le résultat est vide
+ * 
+ * @param object $pdoQuery Résultat de la requête après execution
+ */
+function redirectIfNoResult(object $pdoQuery)
+{
+    if($pdoQuery->rowCount() === 0){
+        // redirection permanente
+        header("Location: ".Router::$router->generate("home"), true, 301);
+        exit(0);
+    }
 }

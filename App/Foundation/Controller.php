@@ -46,28 +46,31 @@ abstract class Controller
     public function __construct()
     {
         //chargement du fichier app.ini à la racine du projet
-        $lst_ini = parse_ini_file("../../app.ini");
-        $this->twig = new Environment(new FilesystemLoader(__DIR__ . "/../../". $lst_ini["view_path"]));
+        $configContent = parse_ini_file("../../config.ini");
+        $this->twig = new Environment(new FilesystemLoader(__DIR__ . "/../../". $configContent["view_path"]));
 
         // ajout de la fonction asset pour twig afin de récuperer l'url du dossier asset dans le repertoire public
         $this->twig->addFunction(new TwigFunction('asset', function ($asset): string
         {
             return sprintf('/../assets/%s', ltrim($asset, '/'));
         }));
-        $this->twig->addFunction(new TwigFunction('generate', function (string $name, array $params = []): string
+        $this->twig->addFunction(new TwigFunction('generate', function (string $nameUrl, array $params = []): string
         {
-            return sprintf(Router::$router->generate($name, $params));
+            return sprintf(Router::$router->generate($nameUrl, $params));
         }));
         $this->twig->addFunction(new TwigFunction('dump', function ($object): string
         {
             return var_dump($object);
         }));
 
-        $str_connexion = "mysql:host=".$lst_ini["my_host"].";dbname=".$lst_ini["my_name"];
-        $this->db = new PDO($str_connexion, $lst_ini["my_user"], $lst_ini["my_pass"]);
+        $connexion = "mysql:host=".$configContent["myHost"].";dbname=".$configContent["myName"];
+        $this->db = new PDO($connexion, $configContent["myUser"], $configContent["myPass"]);
         // permet d'afficher un rapport des erreurs
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         // indique que le mode par défaut pour le fetch est FETCH_ASSOC
         $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        // converti les chaines de caractères vides en variables NULL
+        $this->db->setAttribute(PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING);
     }
+
 }

@@ -96,7 +96,6 @@ class Router
             list($controller, $action) = explode('#', $lst_match['target']);
             $ctrl = "App\\Bundle\\Controllers\\".$controller;
             if (is_callable(array(new $ctrl, $action))) {
-                convert_array_element_to_int($lst_match);
                 call_user_func_array(array(new $ctrl,$action), $lst_match['params']);
             } else {
                 header('HTTP/1.1 500 Internal Server Error');
@@ -104,7 +103,6 @@ class Router
         
         // si on renseigne une fonction au lieu d'un controller
         } else if(is_object($lst_match["target"]) && is_callable($lst_match["target"])) {
-            convert_array_element_to_int($lst_match);
             call_user_func_array($lst_match["target"], $lst_match["params"]);
         } else {
             header('HTTP/1.1 500 Internal Server Error');
