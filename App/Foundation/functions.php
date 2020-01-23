@@ -1,31 +1,25 @@
 <?php
 
 /**
- * Le fichier functions.php sert à créer des fonctions.
+ * Le fichier sert à créer des fonctions/fonctionnalités additionnelles pour le projet.
  * Ces fonctions pourront êre utilisées dans tous les fichiers
- * du framework via l'autoload file de composer
+ * du projet grâce à l'autoload file de composer
  * 
- * PHP version 7.4.1
- * 
+ * PHP version 7.4.2
  * @category Functions
- * @package None
- * @subpackage None
  * @author Robin Bidanchon <robin.bidanchon@gmail.com>
- * @license MPL-2.0 https://github.com/MrAnyx/Skeleton-TimePHP/blob/master/LICENSE
- * @link any page
+ * @link Toutes les pages
  */
-
 
 use App\Foundation\Router;
 use Cocur\Slugify\Slugify;
 
-
 /**
- * Convert the title into a slug
+ * Converti le titre d'un article en slug (chaine de caractère minuscule séparée par des "-")
  * 
  * @param string $title Titre que l'on veut convertir en slug
  * @param string $separator Separateur que l'on va utiliser pour la conversion en slug
- * @return array
+ * @return string
  */
 function slugify(string $title, string $separator): string
 {
@@ -34,7 +28,7 @@ function slugify(string $title, string $separator): string
 }
 
 /**
- * Convert strings that represent integers into real integers
+ * Parcour une liste d'élément et converti un string en int si c'est possible.
  * 
  * @param array $array correspond à la variable $match qui est placée en paramètre
  * @return array
@@ -51,14 +45,14 @@ function convertArrayInt(array $array): array
 }
 
 /**
- * Fait une redirection vers la page d'accueil si le résultat est vide
+ * Fait une redirection vers la page d'accueil si le résultat d'une requête sql est vide
  * 
  * @param object $pdoQuery Résultat de la requête après execution
  */
 function redirectIfNoResult(object $pdoQuery)
 {
     if($pdoQuery->rowCount() === 0){
-        // redirection permanente
+        // redirection permanente (301)
         header("Location: ".Router::$router->generate("home"), true, 301);
         exit(0);
     }

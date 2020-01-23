@@ -1,17 +1,14 @@
 <?php
 
 /**
- * La classe Router sert à gérer les url et
- * associe les url au bon controller
+ * La classe Router sert à gérer les url et associe les url au bon controller
+ * Elle embarque la variable pour le routage, pour calculer le temps de chargement
+ * ainsi que pour la gestion des erreurs
  * 
- * PHP version 7.4.1
+ * PHP version 7.4.2
  * 
- * @category Router
- * @package TimePHP
- * @subpackage Foundation
  * @author Robin Bidanchon <robin.bidanchon@gmail.com>
- * @license MPL-2.0 https://github.com/MrAnyx/Skeleton-TimePHP/blob/master/LICENSE
- * @link any page
+ * @link Toutes les pages
  */
 
 namespace App\Foundation;
@@ -91,7 +88,7 @@ class Router
         if ($lst_match === false) {
             header("Location: ".self::$router->generate("home")); //redirection vers la page d'accueil
 
-        // si on renseigne un controller (HomeController#function 
+        // si on renseigne un controller (BlogController#function) 
         } else if(is_string($lst_match["target"])) {
             list($controller, $action) = explode('#', $lst_match['target']);
             $ctrl = "App\\Bundle\\Controllers\\".$controller;

@@ -1,17 +1,14 @@
 <?php
 
 /**
- * La classe HomeController permet de gérer la récupération de données pour
- * ensuite les envoyer à la vue correspondante.
- * Cette classe étend Controller ce qui lui permet d'utiliser les variable $twig et $_whoops
+ * La classe HomeController permet des gérer les données des pages pour le blog.
+ * La récupération des données se fait via ce controller.
+ * Cette classe étend une classe abstraite Controller ce qui lui permet
+ * d'utiliser les variable $twig et $_whoops issus de cette classe abstraite.
  * 
- * PHP version 7.4.1
+ * PHP version 7.4.2
  * 
- * @category Controller
- * @package TimePHP
- * @subpackage Bundle\Controllers
  * @author Robin Bidanchon <robin.bidanchon@gmail.com>
- * @license MPL-2.0 https://github.com/MrAnyx/Skeleton-TimePHP/blob/master/LICENSE
  * @link http://domaine.com/
  */
 
@@ -22,14 +19,14 @@ use App\Foundation\Router;
 use App\Foundation\Controller;
 
 /**
- * Controller de la page d'accueil
+ * Controller pour la gestion du blog
  * 
  * @category Controller
  * @package TimePHP
  * @subpackage Bundle\Controller
  * @link http://domaine.com
  */
-class HomeController extends Controller
+class BlogController extends Controller
 {
 
     /**
@@ -64,9 +61,8 @@ class HomeController extends Controller
         ]);
     }
 
-
     /**
-     * Récupère l'intégralité d'un article
+     * Récupère l'intégralité des champs pour un article donné
      * 
      * @param int $idArticle Correspond à l'id de l'article sur lequel on a cliqué
      * @param string $slug Designe le slug de l'article
@@ -84,7 +80,6 @@ class HomeController extends Controller
         echo $this->twig->render("articleFull.twig", [
             "article" => $article->fetch() // On met le fetch car on a qu'un seul element qui est retourné par la requête
         ]);
-        
-
     }
+    
 }
