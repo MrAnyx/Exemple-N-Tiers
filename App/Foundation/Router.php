@@ -36,11 +36,10 @@ class Router
     public static $loadingTime;
 
     /**
-     * @var Whoops Générateur de belles erreurs
+     * @var Whoops Générateur de belles pages d'erreurs
      */
     private $_whoops;
 
-    //Class constructor
     public function __construct()
     {
         self::$router = new AltoRouter();

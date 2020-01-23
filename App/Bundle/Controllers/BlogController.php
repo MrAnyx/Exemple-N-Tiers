@@ -1,7 +1,7 @@
 <?php
 
 /**
- * La classe HomeController permet des gérer les données des pages pour le blog.
+ * La classe BlogController permet des gérer les données des pages pour le blog.
  * La récupération des données se fait via ce controller.
  * Cette classe étend une classe abstraite Controller ce qui lui permet
  * d'utiliser les variable $twig et $_whoops issus de cette classe abstraite.

@@ -28,12 +28,12 @@ abstract class Controller
 {
 
     /**
-     * @var Environment
+     * @var Environment Permet de retourner la vue correspondante à l'utilisateur
      */
     protected $twig;
 
     /**
-     * @var PDO
+     * @var PDO Permet de requêter la base de données
      */
     protected $db;
 
