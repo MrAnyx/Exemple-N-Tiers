@@ -48,9 +48,15 @@ cd ../..
 
 On peut maintenant installer les librairies pour le projet, pour ce faire, executez les commandes suivantes : 
 
-Pour récupérer les librairies PHP : 
+Pour récupérer les librairies PHP, si vous avez Composer d'installé, utilisez la commande suivant : 
 ```bash
 composer install
+```
+
+Sinon, utilisez le fichier `composer.phar` à la racine du projet grâce à la commande : 
+
+```bash
+php composer.phar install
 ```
 
 Pour récupérer les librairies du fichier python : 
