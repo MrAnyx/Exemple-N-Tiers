@@ -43,7 +43,6 @@ Il ne reste plus qu'à lancer cet environnement :
 
 ```bash
 venv\Script\activate
-cd ../..
 ```
 
 On peut maintenant installer les librairies pour le projet, pour ce faire, executez les commandes suivantes : 
