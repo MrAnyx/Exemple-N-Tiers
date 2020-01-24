@@ -1,0 +1,14 @@
+astroid==2.3.3
+colorama==0.4.3
+Faker==4.0.0
+isort==4.3.21
+lazy-object-proxy==1.4.3
+mccabe==0.6.1
+pylint==2.4.4
+PyMySQL==0.9.3
+python-dateutil==2.8.1
+python-dotenv==0.10.5
+python-slugify==4.0.0
+six==1.14.0
+text-unidecode==1.3
+wrapt==1.11.2
