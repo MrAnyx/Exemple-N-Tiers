@@ -54,6 +54,6 @@ function redirectIfNoResult(object $pdoQuery)
     if($pdoQuery->rowCount() === 0){
         // redirection permanente (301)
         header("Location: ".Router::$router->generate("home"), true, 301);
-        exit(0);
+        exit();
     }
 }
