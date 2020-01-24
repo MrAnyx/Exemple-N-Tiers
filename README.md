@@ -60,7 +60,7 @@ php composer.phar install
 
 Pour récupérer les librairies du fichier python : 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Vous devez maintenant vous retrouver avec un nouveau dossiers : `vendor` et `venv` contenant respectivement les librairies pour PHP et Python.
