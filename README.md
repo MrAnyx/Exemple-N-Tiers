@@ -43,7 +43,6 @@ Il ne reste plus qu'à lancer cet environnement :
 
 ```bash
 venv\Script\activate
-cd ../..
 ```
 
 On peut maintenant installer les librairies pour le projet, pour ce faire, executez les commandes suivantes : 
@@ -61,7 +60,7 @@ php composer.phar install
 
 Pour récupérer les librairies du fichier python : 
 ```bash
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Vous devez maintenant vous retrouver avec un nouveau dossiers : `vendor` et `venv` contenant respectivement les librairies pour PHP et Python.
