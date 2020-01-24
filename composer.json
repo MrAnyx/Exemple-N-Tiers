@@ -1,8 +1,7 @@
 {
-    "name": "timephp/skeleton",
+    "name": "mranyx/ntier",
     "type": "project",
-    "description": "Simple project stucture to start a php project",
-    "license": "MIT",
+    "description": "Exemple de structure N-Tiers",
     "require": {
         "twig/twig": "^3.0",
         "symfony/var-dumper": "^5.0",
