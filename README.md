@@ -31,7 +31,7 @@ Commencez par installer la librairie `virtualenv` via pip grâce à la commande 
 pip install virtualenv
 ```
 
-> L'environnement virtuel en Python sert uniquement à installer des librairie de manière locale pour un projet donné. Elle ne seront pas installée globalement sur votre ordinateur.
+> L'environnement virtuel en Python sert uniquement à installer des librairies pour un projet donné. Elles ne seront pas installée globalement sur votre ordinateur.
 
 On va ensuite créer l'environnement virtuel pour Python. Executez tout simplement la commande suivant : 
 
@@ -47,7 +47,7 @@ venv\Script\activate
 
 On peut maintenant installer les librairies pour le projet, pour ce faire, executez les commandes suivantes : 
 
-Pour récupérer les librairies PHP, si vous avez Composer d'installé, utilisez la commande suivant : 
+Pour récupérer les librairies PHP, si vous avez Composer d'installé, utilisez la commande suivante : 
 ```bash
 composer install
 ```
@@ -74,18 +74,18 @@ Naviguez vers le dossier `bin` de votre dossier de MySQL ou MariaDB puis execute
 ```bash
 mysql -u username -p
 ```
-Remlacez `username` par un utilisateur valide pour la base de données. Entrez ensuite la commande suivante : 
+Remplacez `username` par un nom d'utilisateur valide pour la base de données. Entrez ensuite la commande suivante : 
 
 ```SQL
 CREATE DATABASE dbtest;
 ```
-On a maintenant la base de données il ne reste plus qu'a importer les tables pour le projet. Commencez par sortir de l'inité de commande pour la base de données grâce à la commande : 
+On a maintenant la base de données il ne reste plus qu'a importer les tables pour le projet. Commencez par sortir de l'invité de commande pour la base de données grâce à la commande : 
 
 ```bash
 exit
 ```
 
-Puis lancez commande suivante : 
+Puis lancez la commande suivante : 
 
 ```bash
 mysql -u username -p dbtest < chemin/du/projet/script.sql
@@ -99,7 +99,6 @@ Pour remplir notre base de données, on va utiliser le script Python. Si cela n'
 
 ```bash
 venv\Script\activate
-cd ../..
 ```
 
 Une fois fait, vous allez devoir changer les valeurs de connexion dans les fichiers `.env` et `config.ini` se trouvant à la racine du projet.
@@ -129,7 +128,7 @@ php -S localhost:8000 -t App/public
 ```
 Cette commande sert à lancer le serveur interne de PHP.
 
-Si la commande ne marche pas, vérifiez que le dossier d'installation de PHP se trouve dans les variables environnements.
+Si la commande ne marche pas, vérifiez que le dossier d'installation de PHP se trouve dans les variables d'environnement ainsi que l'extension `PDO`soit activées dans le fichier `php.ini` se trouvant dans votre dossier d'installation de PHP.
 
 Dans le cas ou vous utilisez un logiciel tier tel que : 
 * XAMPP
