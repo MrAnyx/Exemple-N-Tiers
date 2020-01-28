@@ -77,29 +77,29 @@ class Router
     }
 
     /**
-     * Permet d'associer le bon controller / fonction avec l'url saisie
+     * Permet d'associer le bon controller / fonction avec l'url saisi
      */
     public function run()
     {
-        $lst_match = self::$router->match();
+        $match = self::$router->match();
 
         // si l'url ne correspond à aucune des routes
-        if ($lst_match === false) {
+        if ($match === false) {
             header("Location: ".self::$router->generate("home")); //redirection vers la page d'accueil
 
         // si on renseigne un controller (BlogController#function) 
-        } else if(is_string($lst_match["target"])) {
-            list($controller, $action) = explode('#', $lst_match['target']);
+        } else if(is_string($match["target"])) {
+            list($controller, $function) = explode('#', $match['target']);
             $ctrl = "App\\Bundle\\Controllers\\".$controller;
-            if (is_callable(array(new $ctrl, $action))) {
-                call_user_func_array(array(new $ctrl,$action), $lst_match['params']);
+            if (is_callable(array(new $ctrl, $function))) {
+                call_user_func_array(array(new $ctrl,$function), $match['params']);
             } else {
                 header('HTTP/1.1 500 Internal Server Error');
             }
         
         // si on renseigne une fonction au lieu d'un controller
-        } else if(is_object($lst_match["target"]) && is_callable($lst_match["target"])) {
-            call_user_func_array($lst_match["target"], $lst_match["params"]);
+        } else if(is_object($match["target"]) && is_callable($match["target"])) {
+            call_user_func_array($match["target"], $match["params"]);
         } else {
             header('HTTP/1.1 500 Internal Server Error');
         }
