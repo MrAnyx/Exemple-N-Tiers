@@ -1,5 +1,6 @@
 # Exemple d'architecture N-Tier
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/35e1dad3a00b484387aee061f55e48f1)](https://www.codacy.com/manual/MrAnyx/Exemple-N-Tiers?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MrAnyx/Exemple-N-Tiers&amp;utm_campaign=Badge_Grade)
+
+![Codacy Badge](https://api.codacy.com/project/badge/Grade/35e1dad3a00b484387aee061f55e48f1)
 ![Code Size](https://img.shields.io/github/languages/code-size/MrAnyx/Skeleton-TimePHP)
 
 ## Prérequis
@@ -148,5 +149,5 @@ Vous devez apperçevoir la page suivante :
 
 ![https://i.ibb.co/1Q1m5HZ/Capture.png](https://i.ibb.co/1Q1m5HZ/Capture.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwMDIxNDkxNV19
+eyJoaXN0b3J5IjpbLTE3OTE0NzI3NjNdfQ==
 -->
