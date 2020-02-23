@@ -147,3 +147,6 @@ http://localhost:8000/
 Vous devez apperçevoir la page suivante : 
 
 ![https://i.ibb.co/1Q1m5HZ/Capture.png](https://i.ibb.co/1Q1m5HZ/Capture.png)
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTMwMDIxNDkxNV19
+-->
