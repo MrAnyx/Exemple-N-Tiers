@@ -54,7 +54,9 @@ abstract class Controller
         }));
         $this->twig->addFunction(new TwigFunction('dump', function ($object): string
         {
-            return var_dump($object);
+            ob_start();
+            var_dump($object);
+            return ob_get_clean();
         }));
 
         $connexion = "mysql:host=".$configContent["myHost"].";dbname=".$configContent["myName"];
