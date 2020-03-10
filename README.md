@@ -49,6 +49,7 @@ venv\Script\activate
 On peut maintenant installer les librairies pour le projet, pour ce faire, executez les commandes suivantes : 
 
 Pour récupérer les librairies PHP, si vous avez Composer d'installé, utilisez la commande suivante : 
+
 ```bash
 composer install
 ```
@@ -60,6 +61,7 @@ php composer.phar install
 ```
 
 Pour récupérer les librairies du fichier python : 
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -80,6 +82,7 @@ Remplacez `username` par un nom d'utilisateur valide pour la base de données. E
 ```SQL
 CREATE DATABASE dbtest;
 ```
+
 On a maintenant la base de données il ne reste plus qu'a importer les tables pour le projet. Commencez par sortir de l'invité de commande pour la base de données grâce à la commande : 
 
 ```bash
@@ -127,6 +130,7 @@ Vérifiez que vous êtes bien à la racine du projet puis executez la commande s
 ```bash
 php -S localhost:8000 -t App/public
 ```
+
 Cette commande sert à lancer le serveur interne de PHP.
 
 Si la commande ne marche pas, vérifiez que le dossier d'installation de PHP se trouve dans les variables d'environnement ainsi que l'extension `PDO`soit activées dans le fichier `php.ini` se trouvant dans votre dossier d'installation de PHP.
